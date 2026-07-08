@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mental Performance Coaching — Kristin Grube</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0D0D0D;
+    --off-white: #F7F5F0;
+    --green: #2D4A3E;
+    --green-light: #3D6B5A;
+    --gold: #B8963E;
+    --mid: #6B6B6B;
+    --border: #E0DDD8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--off-white);
+    color: var(--black);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+  }
+  nav.scrolled { background: var(--off-white); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: 0.05em; color: white; }
+  nav.scrolled .nav-logo { color: var(--black); }
+  .nav-cta {
+    background: var(--gold);
+    color: white;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #a07d30; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    background: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* IMAGE PLACEHOLDER — replace background with: background: url('your-polo-action.jpg') center/cover no-repeat; */
+  .hero-img-placeholder {
+    position: absolute;
+    inset: 0;
+    background: url('tennis1.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .img-label {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+    border: 1px dashed rgba(255,255,255,0.2);
+    border-radius: 2px;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 4rem 2rem 5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+    color: white;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+  }
+  .hero-for {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: var(--gold);
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: #a07d30; }
+  .btn-ghost-white {
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: border-color 0.2s;
+  }
+  .btn-ghost-white:hover { border-color: white; }
+  .btn-ghost {
+    color: var(--black);
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--black); }
+
+  .divider { width: 100%; height: 1px; background: var(--border); }
+
+  section { padding: 5rem 2rem; }
+  .container { max-width: 900px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+
+  /* FOR EVERYONE */
+  .for-everyone { background: white; }
+  .for-everyone .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (max-width: 640px) { .for-everyone .container { grid-template-columns: 1fr; gap: 2rem; } }
+  .for-everyone h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+  }
+  .for-everyone p { color: var(--mid); line-height: 1.8; font-size: 0.95rem; margin-bottom: 1rem; }
+  .for-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .for-tag {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--border);
+    color: var(--mid);
+    border-radius: 2px;
+  }
+  /* Sport image placeholder */
+  .sport-img-placeholder {
+    background: url('SportMix.png') center/cover no-repeat;
+    aspect-ratio: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* TRUTH */
+  .truth { background: var(--green); color: white; }
+  .truth blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    line-height: 1.4;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    max-width: 720px;
+  }
+  .truth p { font-size: 1rem; opacity: 0.75; line-height: 1.7; max-width: 580px; }
+
+  /* AREAS */
+  .areas h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    margin-bottom: 3rem;
+  }
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .area-card { background: white; padding: 2rem; }
+  .area-num { font-size: 0.7rem; letter-spacing: 0.15em; color: var(--gold); font-weight: 600; margin-bottom: 0.8rem; }
+  .area-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400; margin-bottom: 0.6rem; }
+  .area-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
+
+  /* PACKAGES */
+  .packages h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+  }
+  .packages-note { color: var(--mid); font-size: 0.9rem; margin-bottom: 3rem; font-style: italic; }
+  .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  @media (max-width: 700px) { .packages-grid { grid-template-columns: 1fr; } }
+  .package-card { border: 1px solid var(--border); padding: 2rem; position: relative; background: white; }
+  .package-card.featured { border-color: var(--green); background: var(--green); color: white; }
+  .package-badge {
+    position: absolute; top: -1px; right: 1.5rem;
+    background: var(--gold); color: white;
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.3rem 0.7rem; font-weight: 600;
+  }
+  .package-hours { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; line-height: 1; margin-bottom: 0.3rem; }
+  .package-hours span { font-size: 1rem; font-family: 'Inter', sans-serif; }
+  .package-price { font-size: 1.3rem; font-weight: 600; margin-bottom: 1.2rem; color: var(--gold); }
+  .package-card.featured .package-price { color: #e8c97a; }
+  .package-desc { font-size: 0.85rem; line-height: 1.6; color: var(--mid); margin-bottom: 1.5rem; }
+  .package-card.featured .package-desc { color: rgba(255,255,255,0.75); }
+  .package-cta {
+    display: block; text-align: center; padding: 0.8rem;
+    border: 1px solid var(--border); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500; color: var(--black); transition: all 0.2s;
+  }
+  .package-cta:hover { background: var(--black); color: white; border-color: var(--black); }
+  .package-card.featured .package-cta { background: white; color: var(--green); border-color: white; }
+  .package-card.featured .package-cta:hover { background: var(--off-white); }
+
+  /* ASSESSMENT */
+  .assessment { background: white; }
+  .assessment h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 400; margin-bottom: 0.8rem; }
+  .assessment-intro { color: var(--mid); font-size: 0.95rem; margin-bottom: 3rem; max-width: 580px; line-height: 1.7; }
+  .quiz-section { margin-bottom: 2.5rem; }
+  .quiz-section-title {
+    font-weight: 600; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--green); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+  }
+  .quiz-question { margin-bottom: 1.2rem; }
+  .quiz-question p { font-size: 0.9rem; color: var(--black); margin-bottom: 0.5rem; line-height: 1.5; }
+  .scale { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+  .scale-label { font-size: 0.7rem; color: var(--mid); white-space: nowrap; }
+  .scale-options { display: flex; gap: 0.4rem; }
+  .scale-options input[type="radio"] { display: none; }
+  .scale-options label {
+    width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border); border-radius: 2px; cursor: pointer;
+    font-size: 0.8rem; font-weight: 500; transition: all 0.15s; background: white;
+  }
+  .scale-options input[type="radio"]:checked + label { background: var(--green); color: white; border-color: var(--green); }
+  .scale-options label:hover { border-color: var(--green); color: var(--green); }
+  #quiz-submit {
+    background: var(--green); color: white; border: none; padding: 1rem 2.5rem;
+    font-size: 0.9rem; font-weight: 500; cursor: pointer; border-radius: 2px;
+    margin-top: 1rem; letter-spacing: 0.03em; transition: background 0.2s;
+  }
+  #quiz-submit:hover { background: var(--green-light); }
+  #quiz-result { display: none; margin-top: 2.5rem; padding: 2rem; border: 1px solid var(--green); background: #f0f5f3; }
+  #quiz-result h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 1rem; color: var(--green); }
+  #quiz-result p { font-size: 0.9rem; color: var(--mid); line-height: 1.7; margin-bottom: 1rem; }
+  .result-areas { margin: 1rem 0; }
+  .result-area { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+  .result-area-score { font-weight: 600; color: var(--green); }
+  .result-area-score.low { color: #c0392b; }
+  .result-area-score.mid-score { color: var(--gold); }
+
+  /* ABOUT */
+  .about { background: var(--off-white); }
+  .about-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: start; }
+  @media (max-width: 640px) { .about-inner { grid-template-columns: 1fr; gap: 2rem; } }
+  .about-photo {
+    aspect-ratio: 3/4;
+    background: url('Pic_Kristin.png') center/cover no-repeat;
+    display: flex; align-items: flex-end; padding: 1.5rem; position: relative; overflow: hidden;
+  }
+  /* PHOTO PLACEHOLDER — replace background with: background: url('your-photo.jpg') center/cover no-repeat; */
+  .about-photo-label { color: rgba(255,255,255,0.7); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .about h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; margin-bottom: 1.2rem; line-height: 1.2; }
+  .about p { font-size: 0.95rem; color: var(--mid); line-height: 1.8; margin-bottom: 1rem; }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .tag { font-size: 0.75rem; padding: 0.35rem 0.8rem; border: 1px solid var(--border); color: var(--mid); letter-spacing: 0.05em; }
+
+  /* FAQ */
+  .faq { background: white; }
+  .faq h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 400; margin-bottom: 3rem; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 1.5rem 0; cursor: pointer; }
+  .faq-item:first-of-type { border-top: 1px solid var(--border); }
+  .faq-q {
+    display: flex; justify-content: space-between; align-items: center;
+    font-weight: 500; font-size: 0.95rem; gap: 1rem;
+  }
+  .faq-icon { font-size: 1.2rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a { display: none; padding-top: 1rem; color: var(--mid); font-size: 0.9rem; line-height: 1.8; max-width: 680px; }
+  .faq-item.open .faq-a { display: block; }
+
+  /* FOC */
+  .foc { background: var(--black); color: white; text-align: center; position: relative; overflow: hidden; }
+  /* FOC image placeholder — replace .foc-bg background with url() */
+  .foc-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #0a1f18 0%, #0D0D0D 100%);
+    opacity: 0.95;
+  }
+  .foc .container { position: relative; z-index: 2; }
+  .foc h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; margin-bottom: 1rem; line-height: 1.2; }
+  .foc h2 em { font-style: italic; color: var(--gold); }
+  .foc p { color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; font-size: 1rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+  footer {
+    background: var(--black); color: rgba(255,255,255,0.35);
+    text-align: center; padding: 2rem; font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo">Kristin Grube</div>
+  <a href="#foc" class="nav-cta">Free 15-min Call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img">
+
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal">Mental Performance Coaching · Athletes</p>
+    <h1 class="reveal">Your body is ready.<br><em>Is your mind?</em></h1>
+    <p class="hero-sub reveal">Most athletes train their physical game for hours every week. The mental game gets almost none of that attention — and it's often the reason performance breaks down under pressure.</p>
+    <p class="hero-for reveal">For athletes of any age, gender, or level — from weekend competitors to seasoned professionals.</p>
+    <div class="hero-actions reveal">
+      <a href="#foc" class="btn-primary">Book Free 15-min Call</a>
+      <a href="#assessment" class="btn-ghost-white">Take the Assessment</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOR EVERYONE -->
+<section class="for-everyone">
+  <div class="container">
+    <div>
+      <p class="section-label reveal">Who This Is For</p>
+      <h2 class="reveal">No matter your age, gender, or level of skill.</h2>
+      <p class="reveal">Whether you're a junior rider finding your feet, an amateur athlete who competes for the love of the sport, or a seasoned professional chasing your next level — if you're stuck at a plateau or keep making the same mistakes under pressure, the work is the same.</p>
+      <p class="reveal">Mental performance is not a luxury for elite athletes. It's the missing piece for anyone who has put in the physical work and still isn't performing the way they know they can.</p>
+      <div class="for-tags reveal">
+        <span class="for-tag">Polo</span>
+        <span class="for-tag">Tennis</span>
+        <span class="for-tag">Golf</span>
+        <span class="for-tag">Equestrian</span>
+        <span class="for-tag">Swimming</span>
+        <span class="for-tag">Team Sports</span>
+        <span class="for-tag">Martial Arts</span>
+        <span class="for-tag">All Disciplines</span>
+      </div>
+    </div>
+    <div class="sport-img-placeholder reveal">
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUTH -->
+<section class="truth">
+  <div class="container">
+    <blockquote class="reveal">"The difference between athletes who perform at their best under pressure and those who don't is rarely physical."</blockquote>
+    <p class="reveal">Fear of failure. Loss of focus at the critical moment. Confidence that disappears when it matters most. These are mental skills — and they can be trained, just like any other part of your game.</p>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="areas">
+  <div class="container">
+    <p class="section-label reveal">What We Work On</p>
+    <h2 class="reveal">Six areas that move the needle.</h2>
+    <div class="areas-grid">
+      <div class="area-card reveal">
+        <p class="area-num">01</p>
+        <h3>Focus & Concentration</h3>
+        <p>Block distractions, refocus after mistakes, and stay present under pressure for the full duration of your performance.</p>
+      </div>
+      <div class="area-card reveal">
+        <p class="area-num">02</p>
+        <h3>Confidence</h3>
+        <p>Build belief that holds even when results aren't coming — and stops depending on external validation to feel good about your game.</p>
+      </div>
+      <div class="area-card reveal">
+        <p class="area-num">03</p>
+        <h3>Pressure & Stress Control</h3>
+        <p>Learn to perform in high-stakes moments instead of shrinking from them. Become the athlete who wants the ball when it matters.</p>
+      </div>
+      <div class="area-card reveal">
+        <p class="area-num">04</p>
+        <h3>Fear of Failure</h3>
+        <p>Identify what's holding you back and replace avoidance with courage. Compete freely instead of playing not to lose.</p>
+      </div>
+      <div class="area-card reveal">
+        <p class="area-num">05</p>
+        <h3>Emotional Control</h3>
+        <p>Recover fast from mistakes, manage frustration in real time, and stop emotional reactions from derailing your performance.</p>
+      </div>
+      <div class="area-card reveal">
+        <p class="area-num">06</p>
+        <h3>The Zone</h3>
+        <p>Understand what brings you into your peak state — and learn how to access it consistently, not just hope it shows up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PACKAGES -->
+<section class="packages">
+  <div class="container">
+    <p class="section-label reveal">Investment</p>
+    <h2 class="reveal">Choose your commitment level.</h2>
+    <p class="packages-note reveal">One session won't move the needle — it's a conversation, not a transformation. These packages are designed to create real, lasting change.</p>
+    <div class="packages-grid">
+      <div class="package-card reveal">
+        <div class="package-hours">3 <span>hours</span></div>
+        <div class="package-price">$500</div>
+        <p class="package-desc">One focused area. Ideal for a specific challenge — an upcoming competition, a recurring mental block, or one skill you want to sharpen fast.</p>
+        <a href="#foc" class="package-cta">Get started</a>
+      </div>
+      <div class="package-card featured reveal">
+        <div class="package-badge">Most popular</div>
+        <div class="package-hours">6 <span>hours</span></div>
+        <div class="package-price">$850</div>
+        <p class="package-desc">A real process. Enough time to identify your mental patterns, build new habits, and start applying them in real performance situations.</p>
+        <a href="#foc" class="package-cta">Get started</a>
+      </div>
+      <div class="package-card reveal">
+        <div class="package-hours">10 <span>hours</span></div>
+        <div class="package-price">$1,350</div>
+        <p class="package-desc">Full mental performance transformation. For athletes serious about making the mental game a permanent competitive advantage.</p>
+        <a href="#foc" class="package-cta">Get started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ASSESSMENT -->
+<section class="assessment" id="assessment">
+  <div class="container">
+    <p class="section-label reveal">Self-Assessment</p>
+    <h2 class="reveal">How strong is your mental game?</h2>
+    <p class="assessment-intro reveal">Rate yourself honestly from 1 (strongly disagree) to 5 (strongly agree). This takes about 5 minutes and will show you exactly where your mental game needs attention.</p>
+
+    <form id="quiz">
+      <div class="quiz-section reveal">
+        <p class="quiz-section-title">Focus & Concentration</p>
+        <div class="quiz-question">
+          <p>I block out distractions easily and stay focused throughout my performance.</p>
+          <div class="scale"><span class="scale-label">Disagree</span><div class="scale-options"><input type="radio" name="q1" id="q1-1" value="1"><label for="q1-1">1</label><input type="radio" name="q1" id="q1-2" value="2"><label for="q1-2">2</label><input type="radio" name="q1" id="q1-3" value="3"><label for="q1-3">3</label><input type="radio" name="q1" id="q1-4" value="4"><label for="q1-4">4</label><input type="radio" name="q1" id="q1-5" value="5"><label for="q1-5">5</label></div><span class="scale-label">Agree</span></div>
+        </div>
+        <div class="quiz-question">
+          <p>I refocus quickly and strongly after a bad moment in competition.</p>
+          <div class="scale"><span class="scale-label">Disagree</span><div class="scale-options"><input type="radio" name="q2" id="q2-1" value="1"><label for="q2-1">1</label><input type="radio" name="q2" id="q2-2" value="2"><label for="q2-2">2</label><input type="radio" name="q2" id="q2-3" value="3"><label for="q2-3">3</label><input type="radio" name="q2" id="q2-4" value="4"><label for="q2-4">4</label><input type="radio" name="q2" id="q2-5" value="5"><label for="q2-5">5</label></div><span class="scale-label">Agree</span></div>
+        </div>
+      </div>
+
+      <div class="quiz-section reveal">
+        <p class="quiz-section-title">Confidence</p>
+        <div class="quiz-question">
+          <p>My confidence stays strong even when I'm not performing well.</p>
+          <div class="scale"><span class="scale-label">Disagree</span><div class="scale-options"><input type="radio" name="q3" id="q3-1" value="1"><label for="q3-1">1</label><input type="radio" name="q3" id="q3-2" value="2"><label for="q3-2">2</label><input type="radio" name="q3" id="q3-3" value="3"><label for="q3-3">3</label><input type="radio" name="q3" id="q3-4" value="4"><label for="q3-4">4</label><input type="radio" name="q3" id="q3-5" value="5"><label for="q3-5">5</label></div><span class="scale-label">Agree</span></div>
+        </div>
+        <div class="quiz-question">
+          <p>I can trust my skills and let go, even under the greatest pressure.</p>
+          <div class="scale"><span class="scale-label">Disagree</span><div class="scale-options"><input type="radio" name="q4" id="q4-1" value="1"><label for="q4-1">1</label><input type="radio" name="q4" id="q4-2" value="2"><label for="q4-2">2</label><input type="radio" name="q4" id="q4-3" value="3"><label for="q4-3">3</label><input type="radio" name="q4" id="q4-4" value="4"><label for="q4-4">4</label><input type="radio" name="q4" id="q4-5" value="5"><label for="q4-5">5</label></div><span class="scale-label">Agree</span></div>
+        </div>
+      </div>
+
+      <div class="quiz-section reveal">
+        <p class="quiz-section-title">Pressure & Stress Control</p>
+        <div class="quiz-question">
+          <p>I perform well in high-pressure moments — I don't shrink from them.</p>
+          <div class="scale"><span class="scale-label">Disagree</span><div class="scale-options"><input type="radio" name="q5" id="q5-1" value="1"><label for="q5-1">1</label><input type="radio" name="q5" id="q5-2" value="2"><label for="q5-2">2</label><input type="radio" name="q5" id="q5-3" value="3"><label for="q5-3">3</label><input type="radio" name="q5" id="q5-4" value="4"><label for="q5-4">4</label><input type="radio" name="q5" id="q5-5" value="5"><label for="q5-5">5</label></div><span class="scale-label">Agree</span></div>
+        </div>
+        <div class="quiz-question">
+          <p>I can relax my body and mind quickly when stress builds during competition.</p>
+          <div class="scale"><span class="scale-label">Disagree</span><div class="scale-options"><input type="radio" name="q6" id="q6-1" value="1"><label for="q6-1">1</label><input type="radio" name="q6" id="q6-2" value="2"><label for="q6-2">2</label><input type="radio" name="q6" id="q6-3" value="3"><label for="q6-3">3</label><input type="radio" name="q6" id="q6-4" value="4"><label for="q6-4">4</label><input type="radio" name="q6" id="q6-5" value="5"><label for="q6-5">5</label></div><span class="scale-label">Agree</span></div>
+        </div>
+      </div>
+
+      <div class="quiz-section reveal">
+        <p class="quiz-section-title">Fear of Failure</p>
+        <div class="quiz-question">
+          <p>I compete freely — I play to win, not to avoid losing.</p>
+          <div class="scale"><span class="scale-label">Disagree</span><div class="scale-options"><input type="radio" name="q7" id="q7-1" value="1"><label for="q7-1">1</label><input type="radio" name="q7" id="q7-2" value="2"><label for="q7-2">2</label><input type="radio" name="q7" id="q7-3" value="3"><label for="q7-3">3</label><input type="radio" name="q7" id="q7-4" value="4"><label for="q7-4">4</label><input type="radio" name="q7" id="q7-5" value="5"><label for="q7-5">5</label></div><span class="scale-label">Agree</span></div>
+        </div>
+        <div class="quiz-question">
+          <p>I manage perfectionism well — high standards don't get in my way.</p>
+          <div class="scale"><span class="scale-label">Disagree</span><div class="scale-options"><input type="radio" name="q8" id="q8-1" value="1"><label for="q8-1">1</label><input type="radio" name="q8" id="q8-2" value="2"><label for="q8-2">2</label><input type="radio" name="q8" id="q8-3" value="3"><label for="q8-3">3</label><input type="radio" name="q8" id="q8-4" value="4"><label for="q8-4">4</label><input type="radio" name="q8" id="q8-5" value="5"><label for="q8-5">5</label></div><span class="scale-label">Agree</span></div>
+        </div>
+      </div>
+
+      <div class="quiz-section reveal">
+        <p class="quiz-section-title">Emotional Control</p>
+        <div class="quiz-question">
+          <p>I recover quickly from mistakes without letting them affect the rest of my performance.</p>
+          <div class="scale"><span class="scale-label">Disagree</span><div class="scale-options"><input type="radio" name="q9" id="q9-1" value="1"><label for="q9-1">1</label><input type="radio" name="q9" id="q9-2" value="2"><label for="q9-2">2</label><input type="radio" name="q9" id="q9-3" value="3"><label for="q9-3">3</label><input type="radio" name="q9" id="q9-4" value="4"><label for="q9-4">4</label><input type="radio" name="q9" id="q9-5" value="5"><label for="q9-5">5</label></div><span class="scale-label">Agree</span></div>
+        </div>
+        <div class="quiz-question">
+          <p>I avoid too many emotional ups and downs during competition.</p>
+          <div class="scale"><span class="scale-label">Disagree</span><div class="scale-options"><input type="radio" name="q10" id="q10-1" value="1"><label for="q10-1">1</label><input type="radio" name="q10" id="q10-2" value="2"><label for="q10-2">2</label><input type="radio" name="q10" id="q10-3" value="3"><label for="q10-3">3</label><input type="radio" name="q10" id="q10-4" value="4"><label for="q10-4">4</label><input type="radio" name="q10" id="q10-5" value="5"><label for="q10-5">5</label></div><span class="scale-label">Agree</span></div>
+        </div>
+      </div>
+
+      <div class="quiz-section reveal">
+        <p class="quiz-section-title">The Zone</p>
+        <div class="quiz-question">
+          <p>I know what triggers my peak state and can access it consistently.</p>
+          <div class="scale"><span class="scale-label">Disagree</span><div class="scale-options"><input type="radio" name="q11" id="q11-1" value="1"><label for="q11-1">1</label><input type="radio" name="q11" id="q11-2" value="2"><label for="q11-2">2</label><input type="radio" name="q11" id="q11-3" value="3"><label for="q11-3">3</label><input type="radio" name="q11" id="q11-4" value="4"><label for="q11-4">4</label><input type="radio" name="q11" id="q11-5" value="5"><label for="q11-5">5</label></div><span class="scale-label">Agree</span></div>
+        </div>
+        <div class="quiz-question">
+          <p>I know how to get out of my own way and let my performance happen.</p>
+          <div class="scale"><span class="scale-label">Disagree</span><div class="scale-options"><input type="radio" name="q12" id="q12-1" value="1"><label for="q12-1">1</label><input type="radio" name="q12" id="q12-2" value="2"><label for="q12-2">2</label><input type="radio" name="q12" id="q12-3" value="3"><label for="q12-3">3</label><input type="radio" name="q12" id="q12-4" value="4"><label for="q12-4">4</label><input type="radio" name="q12" id="q12-5" value="5"><label for="q12-5">5</label></div><span class="scale-label">Agree</span></div>
+        </div>
+      </div>
+
+      <button type="button" id="quiz-submit">See My Results</button>
+    </form>
+
+    <div id="quiz-result">
+      <h3 id="result-title"></h3>
+      <p id="result-desc"></p>
+      <div class="result-areas" id="result-areas"></div>
+      <p id="result-cta-text"></p>
+      <a href="#foc" class="btn-primary" style="margin-top:1rem;">Book Your Free 15-min Call</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-photo reveal">
+
+      </div>
+      <div>
+        <p class="section-label reveal">About Kristin</p>
+        <h2 class="reveal">I've been on both sides of pressure.</h2>
+        <p class="reveal">Mental performance coaching has been part of my work throughout my career — working with athletes across disciplines to help them close the gap between how they train and how they perform when it counts.</p>
+        <p class="reveal">Alongside that, I spent 15 years as a General Manager and operational leader across MENA and Europe — making high-stakes decisions under pressure, restructuring organizations, and leading turnarounds. The mental game of sport and the mental game of leadership are closer than most people think.</p>
+        <p class="reveal">I'm an active polo player. I know what it feels like to be in the saddle when everything goes wrong — and what it takes to get back in the game.</p>
+        <div class="about-tags reveal">
+          <span class="tag">Mental Performance</span>
+          <span class="tag">Polo</span>
+          <span class="tag">MENA & Europe</span>
+          <span class="tag">Athletes of All Levels</span>
+          <span class="tag">Online · Worldwide</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <p class="section-label reveal">FAQ</p>
+    <h2 class="reveal">Common questions.</h2>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Is this therapy or sports psychology?<span class="faq-icon">+</span></div>
+      <div class="faq-a">No. Mental Performance Coaching is not therapy and does not deal with clinical or psychological issues. It's practical, forward-focused work on specific mental skills that affect your performance — focus, confidence, pressure management, emotional control. Think of it as training for your mind, the same way you train your body.</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">How does a session work?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Sessions are 60 minutes, conducted online via video call — so it doesn't matter where you are in the world. We work on specific mental skills, review what's happening in your performances, and build practical tools you can apply immediately in training and competition. Between sessions, you put the work into practice.</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Is everything we discuss confidential?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Completely. Everything discussed in our sessions stays between us. Nothing is shared with coaches, clubs, parents, or anyone else — unless you explicitly ask me to. Confidentiality is the foundation of this work.</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">How quickly will I see results?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Most athletes notice a shift in awareness and clarity within the first two or three sessions. Lasting change — where new mental habits become automatic under pressure — typically takes the full package. That's why a single session isn't offered: one conversation starts a process, it doesn't complete one.</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Do I need to be a professional or elite athlete?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Not at all. This work is for any athlete who is serious about their performance — regardless of age, gender, sport, or level. If you're stuck at a plateau, keep making the same mistakes under pressure, or feel like your mental game is holding your physical game back, this is for you.</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Online or in person?<span class="faq-icon">+</span></div>
+      <div class="faq-a">All sessions are conducted online. This makes it possible to work with athletes anywhere in the world, without travel or scheduling constraints. Video call tools like Zoom or Teams work perfectly for this kind of work.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOC -->
+<section class="foc" id="foc">
+  <div class="foc-bg"></div>
+  <div class="container">
+    <h2 class="reveal">Not sure where to start?<br><em>Let's find out together.</em></h2>
+    <p class="reveal">A free 15-minute call. No pitch, no pressure. Just a conversation about where your mental game is right now — and whether this is the right fit.</p>
+    <a href="mailto:hello@kristingrube.com" class="btn-primary reveal">Book Free 15-min Call</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Kristin Grube · <a href="https://www.kristingrube.com">Decision Advisory</a> · Mental Performance Coaching</p>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => { item.classList.toggle('open'); });
+  });
+
+  const areas = [
+    { name: 'Focus & Concentration', qs: ['q1','q2'] },
+    { name: 'Confidence', qs: ['q3','q4'] },
+    { name: 'Pressure & Stress Control', qs: ['q5','q6'] },
+    { name: 'Fear of Failure', qs: ['q7','q8'] },
+    { name: 'Emotional Control', qs: ['q9','q10'] },
+    { name: 'The Zone', qs: ['q11','q12'] },
+  ];
+
+  document.getElementById('quiz-submit').addEventListener('click', () => {
+    let total = 0, answered = 0;
+    const areaScores = [];
+    let missing = false;
+
+    for (const area of areas) {
+      let areaTotal = 0;
+      for (const q of area.qs) {
+        const val = document.querySelector(`input[name="${q}"]:checked`);
+        if (!val) { missing = true; break; }
+        areaTotal += parseInt(val.value);
+        total += parseInt(val.value);
+        answered++;
+      }
+      if (missing) break;
+      areaScores.push({ name: area.name, score: areaTotal, pct: Math.round((areaTotal / 10) * 100) });
+    }
+
+    if (missing) { alert('Please answer all questions before seeing your results.'); return; }
+
+    const overall = Math.round((total / (answered * 5)) * 100);
+    let title, desc, ctaText;
+
+    if (overall >= 80) {
+      title = 'Strong mental game — with room to sharpen.';
+      desc = 'You have solid mental foundations. Athletes at this level work with me on consistency — making peak performance predictable rather than occasional.';
+      ctaText = 'Even strong mental games have blind spots. A free call helps identify where you can gain the most edge.';
+    } else if (overall >= 60) {
+      title = 'Your mental game is inconsistent — and it\'s costing you.';
+      desc = 'You have real strengths, but certain mental skills are creating gaps in your performance. Inconsistency is the most fixable mental game problem.';
+      ctaText = 'This is exactly where Mental Performance Coaching makes the biggest difference. Let\'s talk.';
+    } else {
+      title = 'Your mental game is holding your physical game back.';
+      desc = 'Mental skills are significantly limiting your performance right now. The physical talent is there — the mental infrastructure isn\'t yet. This is where to start.';
+      ctaText = 'A free 15-min call will help us understand exactly what to work on first.';
+    }
+
+    document.getElementById('result-title').textContent = title;
+    document.getElementById('result-desc').textContent = desc;
+    document.getElementById('result-cta-text').textContent = ctaText;
+
+    const areasEl = document.getElementById('result-areas');
+    areasEl.innerHTML = areaScores.map(a => {
+      const cls = a.pct >= 80 ? '' : a.pct >= 60 ? 'mid-score' : 'low';
+      return `<div class="result-area"><span class="result-area-name">${a.name}</span><span class="result-area-score ${cls}">${a.pct}%</span></div>`;
+    }).join('');
+
+    const result = document.getElementById('quiz-result');
+    result.style.display = 'block';
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+</script>
+</body>
+</html>
