@@ -72,7 +72,6 @@
     align-items: center;
     justify-content: center;
   }
-  /* IMAGE PLACEHOLDER — replace background with: background: url('your-polo-action.jpg') center/cover no-repeat; */
   .hero-img-placeholder {
     position: absolute;
     inset: 0;
@@ -213,7 +212,6 @@
     color: var(--mid);
     border-radius: 2px;
   }
-  /* Sport image placeholder */
   .sport-img-placeholder {
     background: url('SportMix.png') center/cover no-repeat;
     aspect-ratio: 4/5;
@@ -335,12 +333,60 @@
     background: url('Pic_Kristin.png') center/cover no-repeat;
     display: flex; align-items: flex-end; padding: 1.5rem; position: relative; overflow: hidden;
   }
-  /* PHOTO PLACEHOLDER — replace background with: background: url('your-photo.jpg') center/cover no-repeat; */
   .about-photo-label { color: rgba(255,255,255,0.7); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
   .about h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; margin-bottom: 1.2rem; line-height: 1.2; }
   .about p { font-size: 0.95rem; color: var(--mid); line-height: 1.8; margin-bottom: 1rem; }
   .about-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
   .tag { font-size: 0.75rem; padding: 0.35rem 0.8rem; border: 1px solid var(--border); color: var(--mid); letter-spacing: 0.05em; }
+
+  /* PRESS */
+  .press { background: white; }
+  .press h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+  }
+  .press-note { color: var(--mid); font-size: 0.9rem; margin-bottom: 3rem; }
+  .press-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .press-card {
+    background: white;
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: background 0.2s;
+  }
+  .press-card:hover { background: var(--off-white); }
+  .press-mag {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .press-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--black);
+  }
+  .press-cta {
+    font-size: 0.8rem;
+    color: var(--mid);
+    margin-top: 0.4rem;
+    transition: color 0.2s;
+  }
+  .press-card:hover .press-cta { color: var(--green); }
 
   /* FAQ */
   .faq { background: white; }
@@ -358,7 +404,6 @@
 
   /* FOC */
   .foc { background: var(--black); color: white; text-align: center; position: relative; overflow: hidden; }
-  /* FOC image placeholder — replace .foc-bg background with url() */
   .foc-bg {
     position: absolute; inset: 0;
     background: linear-gradient(135deg, #0a1f18 0%, #0D0D0D 100%);
@@ -634,6 +679,44 @@
   </div>
 </section>
 
+<div class="divider"></div>
+
+
+<section class="press">
+  <div class="container">
+    <p class="section-label reveal">Press</p>
+    <h2 class="reveal">Featured In.</h2>
+    <p class="press-note reveal">A selection of articles written for leading polo publications.</p>
+    <div class="press-grid">
+      <a href="press/AlBadiaBenchmarking.pdf" target="_blank" rel="noopener" class="press-card reveal">
+        <span class="press-mag">Al Badia</span>
+        <span class="press-title">Benchmarking</span>
+        <span class="press-cta">Read PDF →</span>
+      </a>
+      <a href="press/Mental_Training_EN.pdf" target="_blank" rel="noopener" class="press-card reveal">
+        <span class="press-mag">Polo+10</span>
+        <span class="press-title">Mental Training</span>
+        <span class="press-cta">Read PDF →</span>
+      </a>
+      <a href="press/PoloLadyMag.pdf" target="_blank" rel="noopener" class="press-card reveal">
+        <span class="press-mag">Polo Lady Magazine</span>
+        <span class="press-title">Conversation Rates</span>
+        <span class="press-cta">Read PDF →</span>
+      </a>
+      <a href="press/AlBadiaPrep.pdf" target="_blank" rel="noopener" class="press-card reveal">
+        <span class="press-mag">Al Badia</span>
+        <span class="press-title">Preparation</span>
+        <span class="press-cta">Read PDF →</span>
+      </a>
+      <a href="press/USPoloMag.pdf" target="_blank" rel="noopener" class="press-card reveal">
+        <span class="press-mag">US Polo Magazine</span>
+        <span class="press-title">Head Games</span>
+        <span class="press-cta">Read PDF →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <section class="faq">
   <div class="container">
@@ -746,7 +829,7 @@
       desc = 'Mental skills are significantly limiting your performance right now. The physical talent is there — the mental infrastructure isn\'t yet. This is where to start.';
       ctaText = 'A free 15-min call will help us understand exactly what to work on first.';
     }
- 
+
     document.getElementById('result-title').textContent = title;
     document.getElementById('result-desc').textContent = desc;
     document.getElementById('result-cta-text').textContent = ctaText;
