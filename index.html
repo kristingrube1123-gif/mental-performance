@@ -341,13 +341,13 @@
 
   /* ABOUT */
   .about { background: var(--off-white); }
-  .about-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: start; }
+  .about-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: stretch; }
   @media (max-width: 640px) { .about-inner { grid-template-columns: 1fr; gap: 2rem; } }
-  .about-photo {
-    aspect-ratio: 3/4;
-    background: url('Pic_Kristin.png') center/cover no-repeat;
-    display: flex; align-items: flex-end; padding: 1.5rem; position: relative; overflow: hidden;
-  }
+ .about-photo {
+  background: url('Pic_Kristin.png') center/cover no-repeat;
+  display: flex; align-items: flex-end; padding: 1.5rem; position: relative; overflow: hidden;
+  min-height: 100%;
+}
   .about-photo-label { color: rgba(255,255,255,0.7); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
   .about h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; margin-bottom: 1.2rem; line-height: 1.2; }
   .about p { font-size: 0.95rem; color: var(--mid); line-height: 1.8; margin-bottom: 1rem; }
