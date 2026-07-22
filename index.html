@@ -223,17 +223,32 @@
   }
 
   /* TRUTH */
-  .truth { background: var(--green); color: white; }
-  .truth blockquote {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.4rem, 3vw, 2.2rem);
-    line-height: 1.4;
-    font-weight: 400;
-    font-style: italic;
-    margin-bottom: 1.5rem;
-    max-width: 720px;
-  }
-  .truth p { font-size: 1rem; opacity: 0.75; line-height: 1.7; max-width: 580px; }
+  /* TRUTH */
+.truth { background: var(--green); color: white; }
+.truth .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .truth .container { grid-template-columns: 1fr; gap: 2rem; }
+}
+.truth-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.truth blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  line-height: 1.4;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+.truth p { font-size: 1rem; opacity: 0.75; line-height: 1.7; }
 
   /* AREAS */
   .areas h2 {
