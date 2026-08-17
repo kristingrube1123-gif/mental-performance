@@ -389,6 +389,24 @@
   .press-card:hover .press-cta { color: var(--green); }
 
   /* BOOK */
+  .podcast { background: var(--green); color: white; }
+  .podcast-inner {
+    display: grid; grid-template-columns: 260px 1fr; gap: 4rem; align-items: center;
+  }
+  @media (max-width: 640px) { .podcast-inner { grid-template-columns: 1fr; gap: 2rem; } }
+  .podcast-cover {
+    width: 100%; aspect-ratio: 1; border-radius: 2px;
+    background: url('PoloPodcast.png') center/cover no-repeat;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  }
+  .podcast .section-label { color: var(--gold); }
+  .podcast h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; margin-bottom: 1rem; line-height: 1.2; color: white; }
+  .podcast-subtitle { font-size: 0.9rem; color: var(--gold); font-style: italic; margin-bottom: 1.2rem; }
+  .podcast p { font-size: 0.95rem; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 1rem; max-width: 520px; }
+  .podcast-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.8rem; }
+  .podcast .btn-ghost { border-color: var(--gold); color: var(--gold); }
+  .podcast .btn-ghost:hover { background: var(--gold); color: var(--green); }
+
   .book { background: var(--off-white); }
   .book-inner {
     display: grid;
@@ -452,6 +470,8 @@
 </nav>
 
 
+
+
 <section class="hero">
   <div class="hero-img">
 
@@ -468,8 +488,6 @@
     </div>
   </div>
 </section>
-
-<div class="divider"></div>
 
 
 <section class="for-everyone">
@@ -503,6 +521,8 @@
     <p class="reveal">Fear of failure. Loss of focus at the critical moment. Confidence that disappears when it matters most. These are mental skills — and they can be trained, just like any other part of your game.</p>
   </div>
 </section>
+
+<div class="divider"></div>
 
 
 <section class="areas">
@@ -547,30 +567,73 @@
 <div class="divider"></div>
 
 
-<section class="packages">
+<section class="press">
   <div class="container">
-    <p class="section-label reveal">Investment</p>
-    <h2 class="reveal">Choose your commitment level.</h2>
-    <p class="packages-note reveal">One session won't move the needle — it's a conversation, not a transformation. These packages are designed to create real, lasting change.</p>
-    <div class="packages-grid">
-      <div class="package-card reveal">
-        <div class="package-hours">3 <span>hours</span></div>
-        <div class="package-price">$500</div>
-        <p class="package-desc">One focused area. Ideal for a specific challenge — an upcoming competition, a recurring mental block, or one skill you want to sharpen fast.</p>
-        <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="package-cta">Get started</a>
+    <p class="section-label reveal">Press</p>
+    <h2 class="reveal">Featured In.</h2>
+    <p class="press-note reveal">A selection of articles written for leading polo publications.</p>
+    <div class="press-grid">
+      <a href="AlBadiaBenchmarking.pdf" target="_blank" rel="noopener" class="press-card reveal">
+        <span class="press-mag">Al Badia</span>
+        <span class="press-title">Benchmarking</span>
+        <span class="press-cta">Read PDF →</span>
+      </a>
+      <a href="Mental_Coaching_EN.pdf" target="_blank" rel="noopener" class="press-card reveal">
+        <span class="press-mag">Polo+10</span>
+        <span class="press-title">Mental Training</span>
+        <span class="press-cta">Read PDF →</span>
+      </a>
+      <a href="PoloLadyMag.pdf" target="_blank" rel="noopener" class="press-card reveal">
+        <span class="press-mag">Polo Lady Magazine</span>
+        <span class="press-title">Conversation Rates</span>
+        <span class="press-cta">Read PDF →</span>
+      </a>
+      <a href="AlBadiaPrep.pdf" target="_blank" rel="noopener" class="press-card reveal">
+        <span class="press-mag">Al Badia</span>
+        <span class="press-title">Preparation</span>
+        <span class="press-cta">Read PDF →</span>
+      </a>
+      <a href="USPoloMagazine.pdf" target="_blank" rel="noopener" class="press-card reveal">
+        <span class="press-mag">US Polo Magazine</span>
+        <span class="press-title">Head Games</span>
+        <span class="press-cta">Read PDF →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<section class="podcast">
+  <div class="container">
+    <div class="podcast-inner">
+      <div class="podcast-cover reveal"></div>
+      <div>
+        <p class="section-label reveal">The Podcast</p>
+        <h2 class="reveal">Polo Podcast</h2>
+        <p class="podcast-subtitle reveal">Short episodes on the mental side of the game</p>
+        <p class="reveal">Goal setting. Benchmarking. Contingency planning. How to tell whether your problem is technical or mental. Each episode is a few minutes long — the kind of thing you can listen to on the way to the field.</p>
+        <p class="reveal">New episodes added regularly.</p>
+        <div class="podcast-links reveal">
+          <a href="https://open.spotify.com/show/7mQP1ou7jbXVw4GtLW9M26" target="_blank" rel="noopener" class="btn-ghost">Listen on Spotify &rarr;</a>
+          <a href="https://podcasts.apple.com/us/podcast/polo-podcast/id6802331626" target="_blank" rel="noopener" class="btn-ghost">Listen on Apple Podcasts &rarr;</a>
+        </div>
       </div>
-      <div class="package-card featured reveal">
-        <div class="package-badge">Most popular</div>
-        <div class="package-hours">6 <span>hours</span></div>
-        <div class="package-price">$850</div>
-        <p class="package-desc">A real process. Enough time to identify your mental patterns, build new habits, and start applying them in real performance situations.</p>
-        <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="package-cta">Get started</a>
-      </div>
-      <div class="package-card reveal">
-        <div class="package-hours">10 <span>hours</span></div>
-        <div class="package-price">$1,350</div>
-        <p class="package-desc">Full mental performance transformation. For athletes serious about making the mental game a permanent competitive advantage.</p>
-        <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="package-cta">Get started</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="book">
+  <div class="container">
+    <div class="book-inner">
+      <div class="book-cover reveal"></div>
+      <div>
+        <p class="section-label reveal">The Book</p>
+        <h2 class="reveal">The Mental Game of Polo</h2>
+        <p class="book-subtitle reveal">Confidence, Focus and Performance Under Pressure</p>
+        <p class="reveal">Everything I work on with athletes in one-on-one coaching — trigger awareness, confidence, focus, recovering from mistakes — distilled into a book written specifically for polo players, but relevant to anyone whose performance depends on their mind as much as their skill.</p>
+        <p class="reveal">Written from the saddle, not just the coaching chair: the mental patterns that decide a chukka are the same ones I've felt myself, mallet in hand.</p>
+        <a href="https://www.amazon.de/Mental-Game-Polo-Confidence-Performance/dp/B0HF8ZTFMN" target="_blank" rel="noopener" class="btn-ghost reveal">View on Amazon →</a>
       </div>
     </div>
   </div>
@@ -701,53 +764,30 @@
 <div class="divider"></div>
 
 
-<section class="press">
+<section class="packages">
   <div class="container">
-    <p class="section-label reveal">Press</p>
-    <h2 class="reveal">Featured In.</h2>
-    <p class="press-note reveal">A selection of articles written for leading polo publications.</p>
-    <div class="press-grid">
-      <a href="AlBadiaBenchmarking.pdf" target="_blank" rel="noopener" class="press-card reveal">
-        <span class="press-mag">Al Badia</span>
-        <span class="press-title">Benchmarking</span>
-        <span class="press-cta">Read PDF →</span>
-      </a>
-      <a href="Mental_Coaching_EN.pdf" target="_blank" rel="noopener" class="press-card reveal">
-        <span class="press-mag">Polo+10</span>
-        <span class="press-title">Mental Training</span>
-        <span class="press-cta">Read PDF →</span>
-      </a>
-      <a href="PoloLadyMag.pdf" target="_blank" rel="noopener" class="press-card reveal">
-        <span class="press-mag">Polo Lady Magazine</span>
-        <span class="press-title">Conversation Rates</span>
-        <span class="press-cta">Read PDF →</span>
-      </a>
-      <a href="AlBadiaPrep.pdf" target="_blank" rel="noopener" class="press-card reveal">
-        <span class="press-mag">Al Badia</span>
-        <span class="press-title">Preparation</span>
-        <span class="press-cta">Read PDF →</span>
-      </a>
-      <a href="USPoloMagazine.pdf" target="_blank" rel="noopener" class="press-card reveal">
-        <span class="press-mag">US Polo Magazine</span>
-        <span class="press-title">Head Games</span>
-        <span class="press-cta">Read PDF →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-
-<section class="book">
-  <div class="container">
-    <div class="book-inner">
-      <div class="book-cover reveal"></div>
-      <div>
-        <p class="section-label reveal">The Book</p>
-        <h2 class="reveal">The Mental Game of Polo</h2>
-        <p class="book-subtitle reveal">Confidence, Focus and Performance Under Pressure</p>
-        <p class="reveal">Everything I work on with athletes in one-on-one coaching — trigger awareness, confidence, focus, recovering from mistakes — distilled into a book written specifically for polo players, but relevant to anyone whose performance depends on their mind as much as their skill.</p>
-        <p class="reveal">Written from the saddle, not just the coaching chair: the mental patterns that decide a chukka are the same ones I've felt myself, mallet in hand.</p>
-        <a href="https://www.amazon.de/Mental-Game-Polo-Confidence-Performance/dp/B0HF8ZTFMN" target="_blank" rel="noopener" class="btn-ghost reveal">View on Amazon →</a>
+    <p class="section-label reveal">Investment</p>
+    <h2 class="reveal">Choose your commitment level.</h2>
+    <p class="packages-note reveal">One session won't move the needle — it's a conversation, not a transformation. These packages are designed to create real, lasting change.</p>
+    <div class="packages-grid">
+      <div class="package-card reveal">
+        <div class="package-hours">3 <span>hours</span></div>
+        <div class="package-price">$500</div>
+        <p class="package-desc">One focused area. Ideal for a specific challenge — an upcoming competition, a recurring mental block, or one skill you want to sharpen fast.</p>
+        <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="package-cta">Get started</a>
+      </div>
+      <div class="package-card featured reveal">
+        <div class="package-badge">Most popular</div>
+        <div class="package-hours">6 <span>hours</span></div>
+        <div class="package-price">$850</div>
+        <p class="package-desc">A real process. Enough time to identify your mental patterns, build new habits, and start applying them in real performance situations.</p>
+        <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="package-cta">Get started</a>
+      </div>
+      <div class="package-card reveal">
+        <div class="package-hours">10 <span>hours</span></div>
+        <div class="package-price">$1,350</div>
+        <p class="package-desc">Full mental performance transformation. For athletes serious about making the mental game a permanent competitive advantage.</p>
+        <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="package-cta">Get started</a>
       </div>
     </div>
   </div>
@@ -793,6 +833,8 @@
 
   </div>
 </section>
+
+<div class="divider"></div>
 
 
 <section class="foc" id="foc">
