@@ -223,32 +223,17 @@
   }
 
   /* TRUTH */
-  /* TRUTH */
-.truth { background: var(--green); color: white; }
-.truth .container {
-  display: grid;
-  grid-template-columns: 0.75fr 1.25fr;
-  gap: 3rem;
-  align-items: center;
-}
-@media (max-width: 640px) {
-  .truth .container { grid-template-columns: 1fr; gap: 2rem; }
-}
-.truth-img {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  border-radius: 2px;
-}
-.truth blockquote {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.4rem, 3vw, 2.2rem);
-  line-height: 1.4;
-  font-weight: 400;
-  font-style: italic;
-  margin-bottom: 1.5rem;
-}
-.truth p { font-size: 1rem; opacity: 0.75; line-height: 1.7; }
+  .truth { background: var(--green); color: white; }
+  .truth blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    line-height: 1.4;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    max-width: 720px;
+  }
+  .truth p { font-size: 1rem; opacity: 0.75; line-height: 1.7; max-width: 580px; }
 
   /* AREAS */
   .areas h2 {
@@ -341,13 +326,13 @@
 
   /* ABOUT */
   .about { background: var(--off-white); }
-  .about-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: stretch; }
+  .about-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: start; }
   @media (max-width: 640px) { .about-inner { grid-template-columns: 1fr; gap: 2rem; } }
- .about-photo {
-  background: url('Pic_Kristin.png') center/cover no-repeat;
-  display: flex; align-items: flex-end; padding: 1.5rem; position: relative; overflow: hidden;
-  min-height: 100%;
-}
+  .about-photo {
+    aspect-ratio: 3/4;
+    background: url('Pic_Kristin.png') center/cover no-repeat;
+    display: flex; align-items: flex-end; padding: 1.5rem; position: relative; overflow: hidden;
+  }
   .about-photo-label { color: rgba(255,255,255,0.7); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
   .about h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; margin-bottom: 1.2rem; line-height: 1.2; }
   .about p { font-size: 0.95rem; color: var(--mid); line-height: 1.8; margin-bottom: 1rem; }
@@ -403,6 +388,25 @@
   }
   .press-card:hover .press-cta { color: var(--green); }
 
+  /* BOOK */
+  .book { background: var(--off-white); }
+  .book-inner {
+    display: grid;
+    grid-template-columns: 0.8fr 1.6fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (max-width: 640px) { .book-inner { grid-template-columns: 1fr; gap: 2rem; } }
+  .book-cover {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background: url('coverbook.png') center/cover no-repeat;
+    box-shadow: 0 18px 40px rgba(13,13,13,0.18);
+  }
+  .book h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; margin-bottom: 1rem; line-height: 1.2; }
+  .book-subtitle { font-size: 0.9rem; color: var(--gold); font-style: italic; margin-bottom: 1.2rem; }
+  .book p { font-size: 0.95rem; color: var(--mid); line-height: 1.8; margin-bottom: 1rem; max-width: 520px; }
+
   /* FAQ */
   .faq { background: white; }
   .faq h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 400; margin-bottom: 3rem; }
@@ -443,7 +447,7 @@
 <body>
 
 <nav id="nav">
- <a href="https://www.kristingrube.com" style="text-decoration:none;color:inherit;"><div class="nav-logo">Kristin Grube</div></a>
+  <div class="nav-logo">Kristin Grube</div>
   <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="nav-cta">Free 15-min Call</a>
 </nav>
 
@@ -495,11 +499,8 @@
 
 <section class="truth">
   <div class="container">
-    <img src="Pic_Kristin1.png" alt="Kristin Grube" class="truth-img reveal">
-    <div>
-      <blockquote class="reveal">"The difference between athletes who perform at their best under pressure and those who don't is rarely physical."</blockquote>
-      <p class="reveal">Fear of failure. Loss of focus at the critical moment. Confidence that disappears when it matters most. These are mental skills — and they can be trained, just like any other part of your game.</p>
-    </div>
+    <blockquote class="reveal">"The difference between athletes who perform at their best under pressure and those who don't is rarely physical."</blockquote>
+    <p class="reveal">Fear of failure. Loss of focus at the critical moment. Confidence that disappears when it matters most. These are mental skills — and they can be trained, just like any other part of your game.</p>
   </div>
 </section>
 
@@ -554,20 +555,20 @@
     <div class="packages-grid">
       <div class="package-card reveal">
         <div class="package-hours">3 <span>hours</span></div>
-        <div class="package-price">$450</div>
+        <div class="package-price">$500</div>
         <p class="package-desc">One focused area. Ideal for a specific challenge — an upcoming competition, a recurring mental block, or one skill you want to sharpen fast.</p>
         <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="package-cta">Get started</a>
       </div>
       <div class="package-card featured reveal">
         <div class="package-badge">Most popular</div>
         <div class="package-hours">6 <span>hours</span></div>
-        <div class="package-price">$800</div>
+        <div class="package-price">$850</div>
         <p class="package-desc">A real process. Enough time to identify your mental patterns, build new habits, and start applying them in real performance situations.</p>
         <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="package-cta">Get started</a>
       </div>
       <div class="package-card reveal">
         <div class="package-hours">10 <span>hours</span></div>
-        <div class="package-price">$1,150</div>
+        <div class="package-price">$1,350</div>
         <p class="package-desc">Full mental performance transformation. For athletes serious about making the mental game a permanent competitive advantage.</p>
         <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="package-cta">Get started</a>
       </div>
@@ -718,7 +719,7 @@
       </a>
       <a href="PoloLadyMag.pdf" target="_blank" rel="noopener" class="press-card reveal">
         <span class="press-mag">Polo Lady Magazine</span>
-        <span class="press-title">Conversion Rates</span>
+        <span class="press-title">Conversation Rates</span>
         <span class="press-cta">Read PDF →</span>
       </a>
       <a href="AlBadiaPrep.pdf" target="_blank" rel="noopener" class="press-card reveal">
@@ -734,6 +735,25 @@
     </div>
   </div>
 </section>
+
+
+<section class="book">
+  <div class="container">
+    <div class="book-inner">
+      <div class="book-cover reveal"></div>
+      <div>
+        <p class="section-label reveal">The Book</p>
+        <h2 class="reveal">The Mental Game of Polo</h2>
+        <p class="book-subtitle reveal">Confidence, Focus and Performance Under Pressure</p>
+        <p class="reveal">Everything I work on with athletes in one-on-one coaching — trigger awareness, confidence, focus, recovering from mistakes — distilled into a book written specifically for polo players, but relevant to anyone whose performance depends on their mind as much as their skill.</p>
+        <p class="reveal">Written from the saddle, not just the coaching chair: the mental patterns that decide a chukka are the same ones I've felt myself, mallet in hand.</p>
+        <a href="https://www.amazon.de/Mental-Game-Polo-Confidence-Performance/dp/B0HF8ZTFMN" target="_blank" rel="noopener" class="btn-ghost reveal">View on Amazon →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
 
 
 <section class="faq">
@@ -779,13 +799,13 @@
   <div class="foc-bg"></div>
   <div class="container">
     <h2 class="reveal">Not sure where to start?<br><em>Let's find out together.</em></h2>
-    <p class="reveal">A free 15-minute call. No pitch, no pressure. Just a conversation about where your mental game is right now — and whether this is the right fit. Or reach out directly at kristingrube.coaching@gmail.com</p>
+    <p class="reveal">A free 15-minute call. No pitch, no pressure. Just a conversation about where your mental game is right now — and whether this is the right fit.</p>
     <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="btn-primary reveal">Book Free 15-min Call</a>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 Kristin Grube · Decision Advisory · Mental Performance Coaching · <a href="mailto:kristingrube.coaching@gmail.com">kristingrube.coaching@gmail.com</a></p>
+  <p>© 2025 Kristin Grube · <a href="https://www.kristingrube.com">Decision Advisory</a> · Mental Performance Coaching</p>
 </footer>
 
 <script>
